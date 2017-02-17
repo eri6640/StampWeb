@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* LAYOUT CSS Document */
+@charset "utf-8";
+
+body {
+	font-family: Arial, Helvetica, sans-serif; color: #454545; font-size: 14px; padding-bottom: 20px;
+	background: #f4f4f4; margin: 0;
+}
+
+a {
+	outline: 0 !important;
+}
+
+a:hover, a:visited {
+	text-decoration: none;
+}
