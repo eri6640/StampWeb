@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 const hostname = '127.0.0.1';
-const port = 8090;
+const port = 8090; // port
 
 app.use(express.static('res'));
 
