@@ -32,14 +32,14 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 		}
     } );
 	
-    $routeProvider.when( '/reg', {
+    $routeProvider.when( '/registration', {
 		controller : 'RegController',
-		templateUrl : 'templates/reg.html',
+		templateUrl : 'templates/registration.html',
 		resolve : {
 			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 			return $ocLazyLoad.load( [ {
 				name : 'COREAPI',
-				files : [ 'resources/js/controllers/' + 'reg.js' ]
+				files : [ 'resources/js/controllers/' + 'registration.js' ]
 			} ] );
 			} ]
 		}
