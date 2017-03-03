@@ -19,14 +19,105 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 		}
     } );
 	
-    $routeProvider.when( '/test', {
-		controller : 'HomeController',
-		templateUrl : 'templates/test.html',
+    $routeProvider.when( '/login', {
+		controller : 'LoginController',
+		templateUrl : 'templates/login.html',
 		resolve : {
 			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 			return $ocLazyLoad.load( [ {
 				name : 'COREAPI',
-				files : [ 'resources/js/controllers/' + 'home.js' ]
+				files : [ 'resources/js/controllers/' + 'login.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/reg', {
+		controller : 'RegController',
+		templateUrl : 'templates/reg.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'reg.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/profile', {
+		controller : 'ProfileController',
+		templateUrl : 'templates/profile.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'profile.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/search', {
+		controller : 'SearchController',
+		templateUrl : 'templates/search.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'search.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/stamp', {
+		controller : 'StampController',
+		templateUrl : 'templates/stamp.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'stamp.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/stamp/:id/add', {
+		controller : 'StampAddController',
+		templateUrl : 'templates/stampAdd.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'stampAdd.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/stamp/:id/del', {
+		controller : 'StampDelController',
+		templateUrl : 'templates/stampDel.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'stampDel.js' ]
+			} ] );
+			} ]
+		}
+    } );
+	
+    $routeProvider.when( '/about', {
+		controller : 'AboutController',
+		templateUrl : 'templates/about.html',
+		resolve : {
+			lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+			return $ocLazyLoad.load( [ {
+				name : 'COREAPI',
+				files : [ 'resources/js/controllers/' + 'about.js' ]
 			} ] );
 			} ]
 		}
@@ -40,11 +131,4 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
     $httpProvider.defaults.headers.common['Accept'] = 'application/json';
 
 } );
-
-app.controller( 'HomeController', function( $scope, $http, $window ) {
-	
-	$scope.test = 'testejam';
-	  
-	  
-});
 
