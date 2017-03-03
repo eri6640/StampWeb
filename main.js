@@ -14,7 +14,7 @@ app.use("/page", express.static(__dirname + "/../templates"));
 
 app.all("/*", function(req, res){
 	res.sendFile( __dirname + "/res/" + "index.html" );
-});//hey
+});//
 
 app.listen(port, hostname, function(err){
    console.log("Started static resource server at http://%s:%s", hostname, port)

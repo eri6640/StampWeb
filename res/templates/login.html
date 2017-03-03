@@ -2,39 +2,54 @@
 <html lang="en-US" ng-app="COREAPI">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>My little pony</title>
+		<title>Log in</title>
 		<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="resources/css/layout.css" />
-		
+		<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+
 		<script type="text/javascript" src="resources/js/1.12.3-jquery.min.js" charset="utf-8"></script>
-		
 		<script type="text/javascript" src="resources/js/angularjs/angular.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="resources/js/angularjs/angular-animate.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="resources/js/angularjs/angular-cookies.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="resources/js/angularjs/angular-route.min.js" charset="utf-8"></script>
-		
 		<script type="text/javascript" src="resources/js/ocLazyLoad.min.js" charset="utf-8"></script>
-		
 		<script type="text/javascript" src="resources/js/core-angularjs.js" charset="utf-8"></script>
-		
+
 		<style type="text/css">
 			[ng\:cloak], [ng-cloak], .ng-cloak {
 				display: none !important;
 			}
 		</style>
-		
+
 		<base href="/">
-	</head>
-	
+
+		<ul class="topnav" id="myTopnav">
+		 <li><a href="#home">Home</a></li>
+		 <li><a href="#sign.html">Sign up</a></li>
+		 <li><a href="#singin">Sign in</a></li>
+	 </ul>
+</head>
+
 	<body ng-cloak class="ng-cloak">
-	
-	<div class="alert alert-danger" role="alert">
-		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-		<span class="sr-only">Error:</span>
-		Lēnām, bet top...
-	</div>
+
+	<center>
+  <h1> Log in </h1>
+	<p>
+					<label for="username" class="uname" data-icon="u" > Your username </label>
+					</br>
+					<input id="username" name="username" required="required" type="text" placeholder=""/>
+	</p>
+	<p>
+					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
+					</br>
+					<input id="password" name="password" required="required" type="password" placeholder="" />
+	</p>
+	<p class="login button">
+					<input type="submit" value="Log in" />
+	</p>
+</center>
 
 	<div ng-view></div>
-	
+
 	</body>
 </html>
