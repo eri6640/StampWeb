@@ -4,7 +4,7 @@ const hostname = '127.0.0.1';
 const port = 8090;
 
 app.use(express.static('res'));
-
+//
 app.use("/js", express.static(__dirname + "/../resources/js"));
 app.use("/img", express.static(__dirname + "/../resources/img"));
 app.use("/css", express.static(__dirname + "/../resources/css"));
