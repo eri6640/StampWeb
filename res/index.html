@@ -33,8 +33,22 @@
 	</head>
 	
 	<body ng-cloak class="ng-cloak">
+	
+	<div id="page">
+	
+		<nav class="navbar navbar-inverse">
+			<ul class="nav navbar-nav">
+				<li class=active><a href=#>Home</a></li>
+				<li><a href=#>Link</a></li>
+				<li><a href=#>Link</a></li>
+			</ul>
+		</nav>
 
-		<div ng-view></div>
+		<div id="container">
+			<div ng-view></div>
+		</div>
+		
+	</div>
 	
 	</body>
 </html>
