@@ -1,0 +1,10 @@
+<body>
+  <div class="collapse navbar-collapse" ng-controller="HeaderController">
+      <ul class="navbar">
+          <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+          <li ng-class="{ active: isActive('/stamp')}"><a href="/stamp">Stamps</a></li>
+          <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
+          <li ng-class="{ active: isActive('/login')}"><a href="/login">Logout</a></li>
+      </ul>
+  </div>
+</body>
