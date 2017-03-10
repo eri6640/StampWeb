@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module( 'COREAPI', [ 'ngRoute', 'ngAnimate', 'ngCookies', 'oc.lazyLoad' ] );
+var app = angular.module( 'COREAPI', [ 'ngRoute', 'ngAnimate', 'ngCookies', 'oc.lazyLoad', 'angular-encryption' ] );
 
 app.constant( 'Const', {
 
@@ -160,7 +160,7 @@ app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookie
 
 	var sessionKey = $cookieStore.get( 'token' );
 	$rootScope.isLoggedIn = $cookieStore.get( 'isLoggedIn' );
-	
+
 	console.log('asdf');
 
 	if ( angular.isUndefined( sessionKey ) || sessionKey === null ) {
@@ -198,9 +198,9 @@ app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookie
 } );
 
 /**
- * 
+ *
  * FACTORY
- * 
+ *
  */
 
 app.factory( 'AuthService', function( $http, Const ) {

@@ -1,22 +1,37 @@
-<div style="width:400px;margin:0 auto;">
-	<center>
-	<h1>Registration</h1>
-	<form name="form" ng-submit="vm.register()">
-	  <div class="form-group" ng-class="{'has-error': form.email.$dirty && form.email.$error.required}">
-			<label for="exampleInputEmail1">Email address</label></br>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" ng-model="email" required />
-			<span ng-show="form.email.$dirty && form.email.$error.required"</span>
-	  </div>
-	  <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-			<label for="exampleInputPassword1">Password</label></br>
-			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password" required />
-			<span ng-show="form.password.$dirty && form.password.$error.required" </span>
-	  </div >
-		<div class="form-actions">
-	  	<button type="submit" class="btn btn-default" ng-click="doReg()">Register</button>
+
+<div style="width: 400px; margin: 0 auto;">
+	<h1>Reģistrācija {{hash}}</h1>
+
+	<div ng-show="errorData.error" class="alert alert-info" role="alert">{{errorData.message}}</div>
+
+	<form>
+		<div class="form-group">
+			<label>Segvārds</label> <input type="text" class="form-control"
+				placeholder="Username" ng-model="username">
 		</div>
+		<div class="form-group">
+			<label>Vārds</label> <input type="text" class="form-control"
+				placeholder="Vārds" ng-model="name">
+		</div>
+		<div class="form-group">
+			<label>Uzvārds</label> <input type="text" class="form-control"
+				placeholder="Uzvārds" ng-model="surname">
+		</div>
+		<div class="form-group" >
+			<label>Epasts</label> <input type="email" class="form-control"
+				placeholder="email" ng-model="email">
+		</div>
+		<div class="form-group">
+			<label>Parole</label> <input type="password" class="form-control"
+				placeholder="Parole" ng-model="password">
+		</div>
+		<div class="form-group">
+			<label>Atkārtota parole</label> <input type="password"
+				class="form-control" placeholder="Parole" ng-model="password2">
+		</div>
+
+		<button class="btn btn-default" ng-click="doReg()">Submit</button>
 	</form>
-</center>
 </div>
 
 
