@@ -37,20 +37,20 @@
 
 	<div id="page">
 
-
-		<div class="collapse navbar-collapse">
-		    <ul class="navbar">
-		        <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
-		        <li ng-class="{ active: isActive('/stamp')}"><a href="/stamp">Stamps</a></li>
-		        <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
-		        <li ng-class="{ active: isActive('/login')}"><a href="/login">Logout</a></li>
-		    </ul>
-		</div>
+		<nav class="navbar navbar-inverse">
+			    <ul class="navbar">
+			        <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+			        <li ng-class="{ active: isActive('/stamp')}"><a href="/stamp">Stamps</a></li>
+			        <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
+			        <li ng-class="{ active: isActive('/login')}"><a href="/login">Logout</a></li>
+			    </ul>
+		</nav>
 
 		<div id="container">
 			<div ng-view></div>
 		</div>
 
 	</div>
+
 	</body>
 </html>
