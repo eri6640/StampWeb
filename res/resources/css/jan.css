@@ -1,9 +1,5 @@
 /**********home***********/
 
-.card-deck-left .card:not(:last-child){
-  margin-bottom: 15px;
-}
-
 .card_left{
   position: relative;
   text-align: center;
@@ -23,6 +19,7 @@
 
 .pages{
   position: relative;
+  top: 5px;
   left: 220px;
 }
 
@@ -31,6 +28,7 @@
 }
 
 .card_right{
+  width: 385px;
   position: relative;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,.125);
@@ -42,15 +40,21 @@
   height: 200px;
 }
 
+/**********Stamp************/
+
+.cards{
+  border: 2px solid green;
+  padding: 25px;
+  margin: 25px;
+}
+
 /**********About************/
 .abouttext1{
-  width: 1000px;
   border: 2px solid green;
   padding: 25px;
   margin: 25px;
 }
 .abouttext2{
-  width: 1000px;
   border: 2px solid green;
   padding: 25px;
   margin: 25px;
