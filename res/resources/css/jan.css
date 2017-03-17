@@ -1,3 +1,14 @@
+/**********background********/
+body {
+    background-color: lightblue;
+}
+
+/**********navbar*********/
+.navbar{
+  height: 20px;
+  width: auto;
+}
+
 /**********home***********/
 
 .card_left{
@@ -14,17 +25,14 @@
 }
 
 .card-img-top {
-    border-top-left-radius: calc(.25rem - 1px);
+    width: 300px;
+    height: auto;
 }
 
 .pages{
   position: relative;
   top: 5px;
   left: 220px;
-}
-
-.card-deck-right .card:not(:last-child){
-  margin-bottom: 25px;
 }
 
 .card_right{
@@ -42,19 +50,70 @@
 
 /**********Stamp************/
 
-.cards{
-  border: 2px solid green;
-  padding: 25px;
-  margin: 25px;
+.cardpic {
+  height: auto;
+  width: 300px;
+  vertical-align: middle;
 }
+
+.cards {
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.cards__item {
+  display: flex;
+  padding: 1rem;
+  width: 320px;
+  height: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card__title {
+  color: @gray-dark;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+
 
 /**********About************/
 .abouttext1{
+  background-color: white;
+  text-align: justify;
   border: 2px solid green;
   padding: 25px;
   margin: 25px;
 }
 .abouttext2{
+  background-color: white;
+  text-align: justify;
   border: 2px solid green;
   padding: 25px;
   margin: 25px;
