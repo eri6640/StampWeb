@@ -1,1 +1,95 @@
-homeasdf
+<header>
+  <img class = "headerpic" src="http://www.askmeaboutstamps.com/wp-content/uploads/2015/06/1777-1024x300.jpg" alt="horse">
+</header>
+<body>
+<div class="collapse navbar-collapse" ng-controller="HeaderController">
+    <ul class="navbar">
+        <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
+        <li ng-class="{ active: isActive('/stamp')}"><a href="/stamp">Stamps</a></li>
+        <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
+        <li ng-class="{ active: isActive('/login')}"><a href="/login">Logout</a></li>
+    </ul>
+</div>
+
+<div class = "container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card-deck-left">
+        <div class="card_left">
+          <img class="card-img-top" src="pastmarka.jpg" alt="Card image cap"
+          style=200px; width: 100%; display: block;>
+          <div class="card-block">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card_left">
+          <img class="card-img-top" src="pastmarka.jpg" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+        <div class="card_left">
+          <img class="card-img-top" src="pastmarka.jpg" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="pages">
+      <button type="button" class="btn btn-primary">1</button>
+      <button type="button" class="btn btn-primary">2</button>
+      <button type="button" class="btn btn-primary">3</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-deck-right">
+      <div class="card_right">
+      <img src="pastmarka.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Joined 3 months ago</small>
+      </div>
+    </div>
+      <div class="card_right">
+        <img src="pastmarka.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Peter Parkinson</b></h4>
+          <p>Collector</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-muted">Joined 3 mins ago</small>
+      </div>
+      </div>
+      <div class="card_right">
+        <img src="pastmarka.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>Lana Amnesia</b></h4>
+          <p>Flower shop owner</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Joined 5 days ago</small>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>

@@ -1,0 +1,57 @@
+/**********home***********/
+
+.card-deck-left .card:not(:last-child){
+  margin-bottom: 15px;
+}
+
+.card_left{
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.card-block{
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card-img-top {
+    border-top-left-radius: calc(.25rem - 1px);
+}
+
+.pages{
+  position: relative;
+  left: 220px;
+}
+
+.card-deck-right .card:not(:last-child){
+  margin-bottom: 25px;
+}
+
+.card_right{
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.headerpic{
+  width: 100%;
+  height: 200px;
+}
+
+/**********About************/
+.abouttext1{
+  width: 1000px;
+  border: 2px solid green;
+  padding: 25px;
+  margin: 25px;
+}
+.abouttext2{
+  width: 1000px;
+  border: 2px solid green;
+  padding: 25px;
+  margin: 25px;
+}

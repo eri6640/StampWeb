@@ -1,24 +1,36 @@
-<div style="width:400px;margin:0 auto;">
+
+<div style="width: 400px; margin: 0 auto;">
+	<h1>Reģistrācija {{hash}}</h1>
+
+	<div ng-show="errorData.error" class="alert alert-info" role="alert">{{errorData.message}}</div>
+
 	<form>
-	  <div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-	  </div>
-	  <div class="form-group">
-		<label for="exampleInputPassword1">Password</label>
-		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-	  </div>
-	  <div class="form-group">
-		<label for="exampleInputFile">File input</label>
-		<input type="file" id="exampleInputFile">
-		<p class="help-block">Example block-level help text here.</p>
-	  </div>
-	  <div class="checkbox">
-		<label>
-		  <input type="checkbox"> Check me out
-		</label>
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+		<div class="form-group">
+			<label>Segvārds</label> <input type="text" class="form-control"
+				placeholder="Username" ng-model="username">
+		</div>
+		<div class="form-group">
+			<label>Vārds</label> <input type="text" class="form-control"
+				placeholder="Vārds" ng-model="name">
+		</div>
+		<div class="form-group">
+			<label>Uzvārds</label> <input type="text" class="form-control"
+				placeholder="Uzvārds" ng-model="surname">
+		</div>
+		<div class="form-group" >
+			<label>Epasts</label> <input type="email" class="form-control"
+				placeholder="email" ng-model="email">
+		</div>
+		<div class="form-group">
+			<label>Parole</label> <input type="password" class="form-control"
+				placeholder="Parole" ng-model="password">
+		</div>
+		<div class="form-group">
+			<label>Atkārtota parole</label> <input type="password"
+				class="form-control" placeholder="Parole" ng-model="password2">
+		</div>
+
+		<button class="btn btn-default" ng-click="doReg()">Submit</button>
 	</form>
 </div>
 
