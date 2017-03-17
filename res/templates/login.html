@@ -1,6 +1,11 @@
 
 <div style="width: 400px; margin: 0 auto;">
 	<h1>Pierakstīšanās</h1>
+	<div class="alert alert-danger" role="alert" ng-show="errorData.error" >
+	  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	  <span class="sr-only">Error:</span>
+	 {{errorData.message}}
+	</div>
 	<form>
 		<div class="form-group">
 			<label>Segvārds</label> <input type="text" class="form-control"

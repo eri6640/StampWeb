@@ -1,5 +1,5 @@
 var app = angular.module( 'COREAPI', [] );
-app.controller( 'LoginController', function( $scope, $http, $window , LogService, sha256, $cookieStore, AuthService) {
+app.controller( 'LoginController', function( $scope, $http, $window , LogService, sha256, $cookieStore, AuthService, Redirect, $location) {
 
 	$scope.errorData = {
 		error : false,
@@ -35,6 +35,14 @@ var password = $scope.password;
 					$scope.reg = data;
 					console.log('Response ' + data.success + ' ' + data.message);
 
+					if(data.success == true){
+
+		        Redirect.home();
+		      }
+					else{
+						$scope.errorData.error = true;
+						$scope.errorData.message = data.massage;
+					}
 			} );
 			res.error( function( data, status, headers, config ) {
 					console.log( 'error' );

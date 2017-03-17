@@ -6,7 +6,7 @@ app.controller( 'RegController', function( $scope, $http, $window, RegService, s
 		message : 'error?'
 	};
 
-	$scope.doReg = function(){
+	$scope.doReg = function(Redirect){
 
 		var username = $scope.username;
 		var name = $scope.name;
@@ -71,6 +71,15 @@ app.controller( 'RegController', function( $scope, $http, $window, RegService, s
 			    $scope.reg = data;
 			    console.log('Response ' + data.success + ' ' + data.message);
 
+					if(data.success == true){
+
+		        Redirect.login();
+		      }
+					else{
+						$scope.errorData.error = true;
+						$scope.errorData.message = data.massage;
+					}
+
 			} );
 			res.error( function( data, status, headers, config ) {
 			    console.log( 'error' );
@@ -83,8 +92,6 @@ app.controller( 'RegController', function( $scope, $http, $window, RegService, s
 	};
 
 });
-
-
 
 app.factory( 'RegService', function( $http, Const ) {
 
