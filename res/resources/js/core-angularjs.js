@@ -187,7 +187,7 @@ app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookie
 
 	var authRes = AuthService.getSession( sessionKey );
 
-	authRes.success( function( data, status, headers, config, $location ) {
+	authRes.success( function( data, status, headers, config ) {
 
 	    // $cookieStore.put( 'isLoggedIn', data );
 
@@ -222,7 +222,7 @@ app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookie
  *
  */
 
-app.factory( 'AuthService', function( $http, Const, $location, $rootScope, $route, Redirect ) {
+app.factory( 'AuthService', function( $http, Const, $location, $rootScope, $route, Redirect, $cookieStore ) {
 
     var getSession = function( value ) {
     	return $http.post( Const.authApiPath + '/getSession', {
@@ -242,6 +242,7 @@ app.factory( 'AuthService', function( $http, Const, $location, $rootScope, $rout
       var nextPath = $location.path(), nextRoute = $route.routes[nextPath];
       if(nextRoute && nextRoute.requireAuth && !$rootScope.isLoggedIn){
         Redirect.login();
+
       }
       else if(nextRoute && !nextRoute.requireAuth && $rootScope.isLoggedIn){
 
