@@ -1,5 +1,5 @@
 var app = angular.module( 'COREAPI', [] );
-app.controller( 'LoginController', function( $scope, $http, $window , LogService) {
+app.controller( 'LoginController', function( $scope, $http, $window , LogService, sha256, $cookieStore, AuthService) {
 
 	$scope.errorData = {
 		error : false,
@@ -7,6 +7,9 @@ app.controller( 'LoginController', function( $scope, $http, $window , LogService
 	};
 
 	$scope.doLog = function(){
+
+var username = $scope.username;
+var password = $scope.password;
 
 		if( angular.isEmpty(username) ){
 			$scope.errorData.error = true;
@@ -23,11 +26,13 @@ app.controller( 'LoginController', function( $scope, $http, $window , LogService
 		}
 		*/
 		else{
-			var res = LogService.reg( username, password );
+			password = sha256.convertToSHA256(password);
+
+			var res = LogService.login( username, password, AuthService.getToken());
 
 			res.success( function( data, status, headers, config ) {
 
-					$rootScope.reg = data;
+					$scope.reg = data;
 					console.log('Response ' + data.success + ' ' + data.message);
 
 			} );
@@ -41,15 +46,16 @@ app.controller( 'LoginController', function( $scope, $http, $window , LogService
 
 app.factory( 'LogService', function( $http, Const ) {
 
-	 var getSession = function( username, password ) {
+	 var login = function( username, password, token ) {
 		 return $http.post( Const.authApiPath + '/login', {
 				 username : username,
-				 password : password
+				 password : password,
+				 token : token
 		 } );
 	 };
 
 	 return {
-		 reg : reg
+		 login : login
 	 };
 
 } );
