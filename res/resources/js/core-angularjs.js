@@ -6,6 +6,7 @@ app.constant( 'Const', {
 
     // api
     authApiPath : "http://94.23.206.157:8090/api/auth",
+    userApiPath : "http://94.23.206.157:8090/api/user"
 
 } );
 

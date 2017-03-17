@@ -3,6 +3,7 @@
     <div class="col-md-6">
       <center><h3>Fresh News</h3></center>
       <div class="card-deck-left">
+
         <div class="card_left">
           <img class="card-img-top" src="http://www.lsm.lv/public/assets/userfiles/Aija/Pastmarka_Turaidas_pils_800-e1404802558156.jpg" alt="Card image cap"
           style=200px; width: 100%; display: block;>
@@ -14,26 +15,7 @@
             <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
-        <div class="card_left">
-          <img class="card-img-top" src="http://farm9.staticflickr.com/8346/8226585922_cb8f0be9f8.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">Dank stamp news</h4>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
-        <div class="card_left">
-          <img class="card-img-top" src="http://farm6.staticflickr.com/5448/9723139290_b6da23ff28.jpg" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">Dank stamp news</h4>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
+
       </div>
 
       <div class="pages">
@@ -45,36 +27,19 @@
     <div class="col-md-6">
       <h3>Recently registered users</h3>
       <div class="card-deck-right">
-      <div class="card_right">
+
+      <div class="card_right" ng-repeat="user in newestUsers">
       <img src="https://s3-media1.fl.yelpcdn.com/buphoto/PDczJr0KQm-CW5sbwPKXEw/o.jpg" alt="Avatar" style="width:100%">
       <div class="container">
-        <h4><b>John Doe</b></h4>
+        <h4><b>{{user.name}} {{user.surname}}</b></h4>
         <p>Architect & Engineer</p>
       </div>
       <div class="card-footer">
         <small class="text-muted">Joined 3 months ago</small>
       </div>
     </div>
-      <div class="card_right">
-        <img src="http://imblogginghere.com/techblog/wp-content/uploads/2011/06/hareesh-google-dude-350x350.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4><b>Peter Parkinson</b></h4>
-          <p>Collector</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-muted">Joined 3 mins ago</small>
-      </div>
-      </div>
-      <div class="card_right">
-        <img src="https://pbs.twimg.com/profile_images/424932899570589696/TKdqMr6I.jpeg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4><b>Lana Amnesia</b></h4>
-          <p>Flower shop owner</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Joined 5 days ago</small>
-        </div>
-      </div>
+
+
       </div>
     </div>
   </div>
