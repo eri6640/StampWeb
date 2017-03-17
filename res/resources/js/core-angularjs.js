@@ -213,10 +213,35 @@ app.factory( 'AuthService', function( $http, Const ) {
     var logout = function() {
 	return $http.post( Const.authApiPath + '/doLogout' );
     };
+    var getToken = function() {
+      return $cookieStore.get( 'token' );
 
+    }
     return {
 	getSession : getSession,
-	logout : logout
+	logout : logout,
+  getToken: getToken
     };
 
 } );
+
+
+
+
+app.controller( 'LogoutController', function( $scope, AuthService) {
+  $scope.doLogout = function(){
+
+    var authRes = AuthService.doLogout( sessionKey );
+
+  	authRes.success( function( data, status, headers, config ) {
+
+
+  	    console.log('Logout success');
+
+  	} );
+  	authRes.error( function( data, status, headers, config ) {
+  	    console.log( 'error' );
+  	} );
+  };
+
+});
