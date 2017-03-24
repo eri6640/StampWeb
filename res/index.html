@@ -38,11 +38,11 @@
 	<div id="page">
 
 		<nav class="navbar navbar-inverse">
-			    <ul class="navbar">
+			    <ul class="navbar" ng-controller="LogoutController">
 			        <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
 			        <li ng-class="{ active: isActive('/stamps')}"><a href="/stamps">Stamps</a></li>
 			        <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
-			        <li ng-class="{ active: isActive('/login')}"><a href="/login">Logout</a></li>
+			        <li ng-class="{ active: isActive('/login')}"><a href="#" ng-click="doLogout()">Logout</a></li>
 			    </ul>
 		</nav>
 
