@@ -99,15 +99,15 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 	}
     } );
 
-    $routeProvider.when( '/search', {
+    $routeProvider.when( '/stamps', {
       requireAuth: true,
-	controller : 'SearchController',
-	templateUrl : 'templates/search.html',
+	controller : 'StampsController',
+	templateUrl : 'templates/stamps.html',
 	resolve : {
 	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 		return $ocLazyLoad.load( [ {
 		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'search.js' ]
+		    files : [ 'resources/js/controllers/' + 'stamps.js' ]
 		} ] );
 	    } ]
 	}
@@ -204,13 +204,13 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
 
-app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookies, Const, AuthService, Redirect) {
+app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookies, Const, AuthService, Redirect, $http) {
 
   $rootScope.$on( '$locationChangeStart', function( evt, next, current ) {
 
 	var sessionKey = $cookieStore.get( 'token' );
 	$rootScope.isLoggedIn = $cookieStore.get( 'isLoggedIn' );
-
+   $http.defaults.headers.post['token'] = sessionKey;
   var expireDate = new Date();
 
   expireDate.setDate( expireDate.getDate() + 1 );
