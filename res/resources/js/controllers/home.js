@@ -1,5 +1,5 @@
 var app = angular.module( 'COREAPI', [] );
-app.controller( 'HomeController', function( $scope, $http, $window, NewestUserLoad ) {
+app.controller( 'HomeController', function( $scope, $http, $window, LoadService ) {
 
 	$scope.test = 'testejam';
 
@@ -7,32 +7,59 @@ app.controller( 'HomeController', function( $scope, $http, $window, NewestUserLo
 		error : false,
 		message : 'error?'
 	};
-	NewestUserLoad.load();
+	LoadService.load();
 
 });
-app.factory( 'NewestUserLoad', function($location, $http, $rootScope, Const) {
 
-  var load = function(){
+	app.factory( 'LoadService', function($location, $http, $rootScope, Const) {
 
-		var res = $http.post( Const.userApiPath + '/getNewestUsers' );
+		var load = function(){
 
-		res.success( function( data, status, headers, config ) {
+			loadUsers();
+			loadNews();
 
-				if(data.success == true){
-					$rootScope.newestUsers = data.userList;
-				}
-				else {
-					$rootScope.errorData.error = true;
-					$rootScope.errorData.message = data.massage;
-				}
-		} );
-		res.error( function( data, status, headers, config ) {
-		    console.log( 'error' );
-		} );
+		};
 
-  }
+	  var loadUsers = function(){
 
-  return {
-    load: load
-  };
+			var res = $http.post( Const.userApiPath + '/getNewestUsers' );
+
+			res.success( function( data, status, headers, config ) {
+
+					if(data.success == true){
+						$rootScope.newestUsers = data.userList;
+					}
+					else {
+						$rootScope.errorData.error = true;
+						$rootScope.errorData.message = data.massage;
+					}
+			} );
+			res.error( function( data, status, headers, config ) {
+			    console.log( 'error' );
+			} );
+
+	  }
+		var loadNews = function(){
+
+			var res = $http.post( Const.newsApiPath + '/getAll' );
+
+			res.success( function( data, status, headers, config ) {
+
+					if(data.success == true){
+						$rootScope.storyList = data.storyList;
+					}
+					else {
+						$rootScope.errorData.error = true;
+						$rootScope.errorData.message = data.massage;
+					}
+			} );
+			res.error( function( data, status, headers, config ) {
+			    console.log( 'error' );
+			} );
+
+	  }
+	  return {
+	    load: load
+	  };
+
 });

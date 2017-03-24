@@ -1,17 +1,13 @@
   <div class="col-md-6">
       <center><h3>Fresh News</h3></center>
       <div class="card-deck-left">
-
-        <div class="card_left">
-          <img class="card-img-top" src="http://www.lsm.lv/public/assets/userfiles/Aija/Pastmarka_Turaidas_pils_800-e1404802558156.jpg" alt="Card image cap">
+        <div class="card_left" ng-repeat="story in storyList">
           <div class="card-block">
-            <h4 class="card-title">Dank stamp news</h4>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <h4 class="card-title">{{story.title}}</h4>
+            <p class="card-text">{{story.content}}</p>
           </div>
         </div>
+
       </div>
     </div>
 

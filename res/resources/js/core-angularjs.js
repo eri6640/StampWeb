@@ -6,7 +6,9 @@ app.constant( 'Const', {
 
     // api
     authApiPath : "http://94.23.206.157:8090/api/auth",
-    userApiPath : "http://94.23.206.157:8090/api/user"
+    userApiPath : "http://94.23.206.157:8090/api/user",
+    newsApiPath : "http://94.23.206.157:8090/api/news",
+    stampsApiPath : "http://94.23.206.157:8090/api/stamps"
 
 } );
 
@@ -23,6 +25,20 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 		return $ocLazyLoad.load( [ {
 		    name : 'COREAPI',
 		    files : [ 'resources/js/controllers/' + 'home.js' ]
+		} ] );
+	    } ]
+	}
+    } );
+
+    $routeProvider.when( '/home/add', {
+      requireAuth: true,
+	controller : 'HomeAddController',
+	templateUrl : 'templates/home/add.html',
+	resolve : {
+	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+		return $ocLazyLoad.load( [ {
+		    name : 'COREAPI',
+		    files : [ 'resources/js/controllers/' + 'home/add.js' ]
 		} ] );
 	    } ]
 	}
@@ -83,7 +99,19 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 	    } ]
 	}
     } );
-
+    $routeProvider.when( '/stamps/add', {
+      requireAuth: true,
+  controller : 'StampsAddController',
+  templateUrl : 'templates/stamps/add.html',
+  resolve : {
+      lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+    return $ocLazyLoad.load( [ {
+        name : 'COREAPI',
+        files : [ 'resources/js/controllers/' + 'stamps/add.js' ]
+    } ] );
+      } ]
+  }
+    } );
     $routeProvider.when( '/stamp', {
       requireAuth: true,
     	controller : 'StampController',
@@ -97,7 +125,6 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
     	    } ]
     	}
     } );
-
 $routeProvider.when( '/stamp/:id/add', {
   requireAuth: true,
 	controller : 'StampAddController',
