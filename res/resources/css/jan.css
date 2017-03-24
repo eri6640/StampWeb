@@ -118,3 +118,9 @@ body {
   padding: 25px;
   margin: 25px;
 }
+
+/*********Profile**********/
+.profilepic{
+  width: 400px;
+  height: auto;
+}
