@@ -120,7 +120,28 @@ body {
 }
 
 /*********Profile**********/
-.profilepic{
-  width: 400px;
+.card_left{
+  width: 300px;
   height: auto;
+}
+
+.cards_collection{
+  width: 100%;
+  background: transparent;
+}
+
+.cards__item_collection{
+  display: flex;
+  padding: 1rem;
+  width: 300px;
+  height: auto;
+}
+
+.cardpic_collection{
+  width: auto;
+  height: 250px;
+}
+
+.btn{
+  width: 70px;
 }
