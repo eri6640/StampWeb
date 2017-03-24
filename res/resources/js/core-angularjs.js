@@ -58,6 +58,19 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 	}
     } );
 
+    $routeProvider.when( '/logout', {
+  requireAuth: false,
+	controller : 'LoginController',
+	resolve : {
+	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+		return $ocLazyLoad.load( [ {
+		    name : 'COREAPI',
+		    files : [ 'resources/js/controllers/' + 'logout.js' ]
+		} ] );
+	    } ]
+	}
+    } );
+
     $routeProvider.when( '/registration', {
       requireAuth: false,
 	controller : 'RegController',
@@ -112,7 +125,7 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
       } ]
   }
     } );
-    $routeProvider.when( '/stamp', {
+    $routeProvider.when( '/stamp/:id', {
       requireAuth: true,
     	controller : 'StampController',
     	templateUrl : 'templates/stamp.html',
@@ -120,7 +133,7 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
     	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
     		return $ocLazyLoad.load( [ {
     		    name : 'COREAPI',
-    		    files : [ 'resources/js/controllers/' + 'stamps.js' ]
+    		    files : [ 'resources/js/controllers/' + 'stamp.js' ]
     		} ] );
     	    } ]
     	}
@@ -128,12 +141,12 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 $routeProvider.when( '/stamp/:id/add', {
   requireAuth: true,
 	controller : 'StampAddController',
-	templateUrl : 'templates/stampAdd.html',
+	templateUrl : 'templates/stamp/add.html',
 	resolve : {
 	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 		      return $ocLazyLoad.load( [ {
 		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'stampAdd.js' ]
+		    files : [ 'resources/js/controllers/' + 'stamp/add.js' ]
 		} ] );
 	    } ]
 	}
@@ -142,12 +155,12 @@ $routeProvider.when( '/stamp/:id/add', {
     $routeProvider.when( '/stamp/:id/del', {
       requireAuth: true,
     	controller : 'StampDelController',
-    	templateUrl : 'templates/stampDel.html',
+    	templateUrl : 'templates/stamp/del.html',
     	resolve : {
 	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 		    return $ocLazyLoad.load( [ {
 		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'stampDel.js' ]
+		    files : [ 'resources/js/controllers/' + 'stamp/del.js' ]
 		    } ] );
 	    } ]
 	    }
