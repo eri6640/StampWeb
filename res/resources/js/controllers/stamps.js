@@ -1,27 +1,27 @@
 var app = angular.module( 'COREAPI', [] );
 app.controller( 'StampsController', function( $scope, $http, $window, LoadService) {
 
-	$scope.test = 'testejam';
+	$scope.stampName = '';
 
 	$scope.errorData = {
 		error : false,
 		message : 'error?'
 	};
 
-	$scope.search = function(){
-		LoadService.load();
-	};
+	$scope.search = LoadService.search;
 
-$scope.search();
+$scope.search( "" );
 
 	});
 
 	app.factory( 'LoadService', function($location, $http, $rootScope, Const) {
 
-		var load = function(){
+		var search = function( stampName ){
 
-			var data = {name: $rootScope.stampName};
-			var res = $http.post( Const.stampsApiPath + '/search' );
+			console.log('stampName ' + stampName);
+
+			var data = {name: stampName};
+			var res = $http.post( Const.stampsApiPath + '/search', data );
 
 			res.success( function( data, status, headers, config ) {
 
@@ -39,7 +39,7 @@ $scope.search();
 
 		}
 		return {
-			load: load
+			search: search
 		};
 
 	});

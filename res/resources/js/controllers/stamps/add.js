@@ -15,8 +15,6 @@ app.controller( 'StampsAddController', function( $scope, $http, $window ,AddServ
     var year = $scope.year;
     var picture = $scope.picture;
 
-
-
     if( angular.isEmpty(name) ){
       $scope.errorData.error = true;
       $scope.errorData.message = 'name cannot be empty!';
@@ -49,14 +47,16 @@ app.controller( 'StampsAddController', function( $scope, $http, $window ,AddServ
       $scope.errorData.error = true;
       $scope.errorData.message = 'description too short!';
     }
-    else if (angular.isNumber(year)){
-        if( year < 1840 ){
-          $scope.errorData.error = true;
-          $scope.errorData.message = 'year is not true!';
-        }
-
+    else if (!angular.isNumber(year)){
+			$scope.errorData.error = true;
+			$scope.errorData.message = 'year is not true!';
     }
+		else if( year < 1840 ){
+			$scope.errorData.error = true;
+			$scope.errorData.message = 'year is not true 2!';
+		}
     else{
+		console.log('else ');
 
       var res = AddService.save( name, description, year, picture );
       res.success( function( data, status, headers, config ) {
@@ -82,7 +82,7 @@ app.controller( 'StampsAddController', function( $scope, $http, $window ,AddServ
      return $http.post( Const.stampsApiPath + '/add', {
          name: name,
          description: description,
-         year: year,
+         year: year - 0,
          picture: picture
      } );
    };
