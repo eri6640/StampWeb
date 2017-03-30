@@ -1,5 +1,5 @@
 var app = angular.module( 'COREAPI', [] );
-app.controller( 'StampsController', function( $scope, $http, $window, LoadService) {
+app.controller( 'StampsController', function( $scope, $http, $window, LoadService, StampCollectionService) {
 
 	$scope.stampName = '';
 
@@ -11,8 +11,29 @@ app.controller( 'StampsController', function( $scope, $http, $window, LoadServic
 	$scope.search = LoadService.search;
 
 $scope.search( "" );
+$scope.addToCollection = StampCollectionService.add;
+	});
+	app.factory( 'StampCollectionService', function($location, $http, $rootScope, Const) {
+
+		var add = function( stampId ){
+			var data = {stampId: stampId};
+			var res = $http.post( Const.userApiPath + '/addStampToCollection', data );
+
+			res.success( function( data, status, headers, config ) {
+
+					$rootScope.addResp = data;
+
+			} );
+			res.error( function( data, status, headers, config ) {
+					console.log( 'error' );
+			} );
+		}
+		return {
+			add: add
+		};
 
 	});
+
 
 	app.factory( 'LoadService', function($location, $http, $rootScope, Const) {
 

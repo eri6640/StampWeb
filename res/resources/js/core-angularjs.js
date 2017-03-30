@@ -85,18 +85,27 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
 	}
     } );
 
+    var resolveProfile = {
+  	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
+  		return $ocLazyLoad.load( [ {
+  		    name : 'COREAPI',
+  		    files : [ 'resources/js/controllers/' + 'profile.js' ]
+  		} ] );
+  	    } ]
+  	};
+
     $routeProvider.when( '/profile', {
         requireAuth: true,
 	controller : 'ProfileController',
 	templateUrl : 'templates/profile.html',
-	resolve : {
-	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
-		return $ocLazyLoad.load( [ {
-		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'profile.js' ]
-		} ] );
-	    } ]
-	}
+	resolve : resolveProfile
+    } );
+
+    $routeProvider.when( '/profile/:userName', {
+        requireAuth: true,
+	controller : 'ProfileController',
+	templateUrl : 'templates/profile.html',
+	resolve : resolveProfile
     } );
 
     $routeProvider.when( '/stamps', {
@@ -124,46 +133,6 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
     } ] );
       } ]
   }
-    } );
-    $routeProvider.when( '/stamp/:id', {
-      requireAuth: true,
-    	controller : 'StampController',
-    	templateUrl : 'templates/stamp.html',
-    	resolve : {
-    	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
-    		return $ocLazyLoad.load( [ {
-    		    name : 'COREAPI',
-    		    files : [ 'resources/js/controllers/' + 'stamp.js' ]
-    		} ] );
-    	    } ]
-    	}
-    } );
-$routeProvider.when( '/stamp/:id/add', {
-  requireAuth: true,
-	controller : 'StampAddController',
-	templateUrl : 'templates/stamp/add.html',
-	resolve : {
-	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
-		      return $ocLazyLoad.load( [ {
-		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'stamp/add.js' ]
-		} ] );
-	    } ]
-	}
-} );
-
-    $routeProvider.when( '/stamp/:id/del', {
-      requireAuth: true,
-    	controller : 'StampDelController',
-    	templateUrl : 'templates/stamp/del.html',
-    	resolve : {
-	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
-		    return $ocLazyLoad.load( [ {
-		    name : 'COREAPI',
-		    files : [ 'resources/js/controllers/' + 'stamp/del.js' ]
-		    } ] );
-	    } ]
-	    }
     } );
 
     $routeProvider.when( '/about', {
@@ -193,6 +162,10 @@ $routeProvider.when( '/stamp/:id/add', {
     };
     angular.isTooShort = function( value, len ) {
 	     return value.length <= len;
+    };
+
+    angular.isNull = function (value) {
+    	return angular.isUndefined(value) || value === null;
     };
 
 } );
@@ -243,6 +216,7 @@ app.run( function( $rootScope, $route, $window, $location, $cookieStore, $cookie
       if(data.success == true){
 
         $rootScope.userData = data.userData;
+        $rootScope.userDataLoaded = data.success;
 
       }
 
@@ -315,7 +289,25 @@ app.factory( 'Redirect', function($location) {
   };
 });
 
-
+app.factory( 'PageService', function( $q, $routeParams ) {
+    var defaultPage = 1;
+    var getPage = function() {
+  	var page = $routeParams.page;
+  	var deferred = $q.defer();
+  	if ( page === null || angular.isUndefined( page ) ) {
+  	    page = defaultPage;
+  	}
+  	page = +(page);
+  	if ( page <= 0 || !isFinite( page ) ) {
+  	    page = defaultPage;
+  	}
+  	deferred.resolve( page );
+  	return deferred.promise;
+      };
+    return {
+  	     getPage : getPage
+    };
+} );
 
 app.controller( 'LogoutController', function( $scope, AuthService, $location) {
   $scope.doLogout = function(){
