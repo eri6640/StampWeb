@@ -1,0 +1,144 @@
+/**********background********/
+body {
+    background-color: lightblue;
+}
+
+/**********navbar*********/
+.navbar{
+  height: 20px;
+  width: auto;
+}
+
+/**********home***********/
+
+.card_left{
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.card-block{
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card-img-top {
+    width: 300px;
+    height: auto;
+}
+
+.card_right{
+  width: 385px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.headerpic{
+  width: 100%;
+  height: 200px;
+}
+
+/**********Stamp************/
+
+.cardpic {
+  height: auto;
+  width: 300px;
+  vertical-align: middle;
+}
+
+.cards {
+  background: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.cards__item {
+  display: flex;
+  padding: 1rem;
+  width: 320px;
+  height: auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card__title {
+  color: @gray-dark;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/**********About************/
+.abouttext1{
+  background-color: white;
+  text-align: justify;
+  border: 2px solid green;
+  padding: 25px;
+  margin: 25px;
+}
+.abouttext2{
+  background-color: white;
+  text-align: justify;
+  border: 2px solid green;
+  padding: 25px;
+  margin: 25px;
+}
+
+/*********Profile**********/
+.profilepic{
+  width: 400px;
+  height: auto;
+}
+
+.cardpic_collection{
+  width: 280px;
+  height: 250px;
+}
+
+.cards_collection{
+  background: transparent;
+}
+
+.cards__item_collection{
+  background: white;
+  padding: 1rem;
+  width: 300px;
+  height: 400px;
+}
+
+.card_buttons{
+  background: transparent;
+}
+.btn{
+  width: 70px;
+}
+.btn2{
+  width: 140px;
+}

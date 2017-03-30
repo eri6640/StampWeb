@@ -1,0 +1,20 @@
+<form class="form-inline">
+  <div class="form-group">
+    <input type="name" class="form-control" id="search" placeholder="input stamp name" ng-model= "stampName">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click = "search(stampName)">Search</button>
+</form>
+<ul class="cards">
+  <li class="cards__item" ng-repeat="stamp in stampList">
+    <div class="card">
+      <img class="cardpic" src="{{stamp.picture}}" alt="Card image cap"
+      style=200px; width: 100%; display: block;>
+      <div class="card__content">
+        <div class="card__title">{{stamp.name}}</div>
+        <p class="card__text">{{stamp.description}}</p>
+        <button class="btn btn--block card__btn" ng-click="addToCollection(stamp._id)">Pievienot kolekcijā</button>
+      </div>
+    </div>
+  </li>
+
+</ul>

@@ -1,0 +1,62 @@
+
+<div style="width: 400px; margin: 0 auto;">
+	<h1>Reģistrācija {{hash}}</h1>
+
+	<div ng-show="errorData.error" class="alert alert-info" role="alert">{{errorData.message}}</div>
+
+	<form>
+		<div class="form-group">
+			<label>Segvārds</label> <input type="text" class="form-control"
+				placeholder="Username" ng-model="username">
+		</div>
+		<div class="form-group">
+			<label>Vārds</label> <input type="text" class="form-control"
+				placeholder="Vārds" ng-model="name">
+		</div>
+		<div class="form-group">
+			<label>Uzvārds</label> <input type="text" class="form-control"
+				placeholder="Uzvārds" ng-model="surname">
+		</div>
+		<div class="form-group" >
+			<label>Epasts</label> <input type="email" class="form-control"
+				placeholder="email" ng-model="email">
+		</div>
+		<div class="form-group">
+			<label>Parole</label> <input type="password" class="form-control"
+				placeholder="Parole" ng-model="password">
+		</div>
+		<div class="form-group">
+			<label>Atkārtota parole</label> <input type="password"
+				class="form-control" placeholder="Parole" ng-model="password2">
+		</div>
+
+		<button class="btn btn-default" ng-click="doReg()">Submit</button>
+	</form>
+</div>
+
+
+
+
+
+
+<!--<center>
+  <h1> Sign up {{hhhh}}</h1>
+	<p>
+					<label for="username" class="uname" data-icon="u" > Your username </label>
+					</br>
+					<input id="username" name="username" required="required" type="text" placeholder=""/>
+	</p>
+	<p>
+					<label for="password" class="youpasswd" data-icon="p"> Your password </label>
+					</br>
+					<input id="password" name="password" required="required" type="password" placeholder="" />
+	</p>
+	<p>
+					<label for="password" class="youpasswd" data-icon="p"> Your password again </label>
+					</br>
+					<input id="password" name="password" required="required" type="password" placeholder="" />
+	</p>
+	<p class="login button">
+					<input type="submit" value="Sign up" />
+	</p>
+</center>-->
