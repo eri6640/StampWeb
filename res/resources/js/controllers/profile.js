@@ -53,7 +53,13 @@ app.factory( 'UserStamps', function($location, $http, $rootScope, Const) {
 		var res = $http.post(Const.stampsApiPath + '/getUserStamps', data);
 		res.success(function (data, status, headers, config) {
 			var body = data;
-			$rootScope.stampList = body.stampList;
+			if(body.success){
+				$rootScope.stampList = body.stampList;
+			}
+			else{
+				console.log('error ' + body.message);
+			}
+
 		});
 		res.error(function (data, status, headers, config) {
 			console.log('Basic error... cant access...');

@@ -59,8 +59,8 @@ app.config( function( $routeProvider, $httpProvider, $locationProvider ) {
     } );
 
     $routeProvider.when( '/logout', {
-  requireAuth: false,
-	controller : 'LoginController',
+  requireAuth: true,
+	controller : 'LogoutController',
 	resolve : {
 	    lazy : [ '$ocLazyLoad', function( $ocLazyLoad ) {
 		return $ocLazyLoad.load( [ {

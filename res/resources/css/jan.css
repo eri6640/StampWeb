@@ -119,7 +119,7 @@ body {
 
 .cardpic_collection{
   width: 280px;
-  height: 250px;
+  height: auto;
 }
 
 .cards_collection{
@@ -137,7 +137,7 @@ body {
   background: transparent;
 }
 .btn{
-  width: 70px;
+  width: auto;
 }
 .btn2{
   width: 140px;

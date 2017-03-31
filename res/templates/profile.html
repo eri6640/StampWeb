@@ -4,11 +4,7 @@
               <div class="card_left">
                 <img class = "profilepic" src="http://www.kombitz.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" alt="Avatar" style="width:100%">
                 <div class="card-block">
-                  <h4><b>{{user.name}} {{user.surname}}</b></h4>
-                  <p>Architect & Engineer</p>
-                  <p>Born in Michigan, USA</p>
-                  <p>Loves collecting things</p>
-                  <button class="btn2 btn--block card__btn">Upload Image</button>
+                  <h4><b>{{profile.name}} {{profile.surname}}</b></h4>
                 </div>
           </div>
       </div>
@@ -16,62 +12,17 @@
       <div class="col-md-8">
         <h3>My collection</h3>
       <ul class="cards_collection">
-        <li class="cards__item_collection">
+        <li class="cards__item_collection" ng-repeat="stamps in stampList">
           <div class="card_collection">
             <img class="cardpic_collection" src="http://www.freakart.lv/wp-content/uploads/2014/10/PASTMARKA_2014_1.jpg" alt="Card image cap"
             style=200px; width: 100%; display: block;>
             <div class="card__content">
-              <div class="card__title">Flex</div>
-              <p class="card__text">This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
+              <div class="card__title">{{stamps.name}}</div>
+              <p class="card__text">{{stamps.description}}</p>
+              <p class="card__text">{{stamps.year}}</p>
               <ul class = "card_buttons">
-                <button class="btn btn--block card__btn">View</button>
-                <button class="btn btn--block card__btn">Delete</button>
+                <button class="btn btn--block card__btn">Izņemt no saraksta</button>
               </ul>
-            </div>
-          </div>
-        </li>
-
-        <li class="cards__item_collection">
-          <div class="card_collection">
-            <img class="cardpic_collection" src="http://www.freakart.lv/wp-content/uploads/2014/10/PASTMARKA_2014_1.jpg" alt="Card image cap"
-            style=200px; width: 100%; display: block;>
-            <div class="card__content">
-              <div class="card__title">Flex Grow</div>
-              <p class="card__text">This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
-              <ul class = "card_buttons">
-                <button class="btn btn--block card__btn">View</button>
-                <button class="btn btn--block card__btn">Delete</button>
-              </ul>
-            </div>
-          </div>
-        </li>
-
-        <li class="cards__item_collection">
-          <div class="card_collection">
-            <img class="cardpic_collection" src="http://www.freakart.lv/wp-content/uploads/2014/10/PASTMARKA_2014_1.jpg" alt="Card image cap"
-            style=200px; width: 100%; display: block;>
-            <div class="card__content">
-              <div class="card__title">Flex Grow</div>
-              <p class="card__text">This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
-              <ul class = "card_buttons">
-                <button class="btn btn--block card__btn">View</button>
-                <button class="btn btn--block card__btn">Delete</button>
-              </ul>
-            </div>
-          </div>
-        </li>
-
-        <li class="cards__item_collection">
-          <div class="card_collection">
-            <img class="cardpic_collection" src="http://www.freakart.lv/wp-content/uploads/2014/10/PASTMARKA_2014_1.jpg" alt="Card image cap"
-            style=200px; width: 100%; display: block;>
-            <div class="card__content">
-              <div class="card__title">Flex Grow</div>
-              <p class="card__text">This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
-            <ul class = "card_buttons">
-              <button class="btn btn--block card__btn">View</button>
-              <button class="btn btn--block card__btn">Delete</button>
-            </ul>
             </div>
           </div>
         </li>
